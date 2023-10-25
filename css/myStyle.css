@@ -1,0 +1,70 @@
+/* Allgemeines Styling */
+body {
+    font-family: 'Arial', sans-serif;
+    background-color: #f8f9fa;
+    margin-bottom: 60px; /* Platz für den Footer */
+}
+
+.container {
+    max-width: 800px;
+    margin: 0 auto;
+}
+
+/* Header-Styling */
+.header {
+    background-color: #031a30; /* Hintergrundfarbe angepasst */
+    color: #ffffff;
+    padding: 10px 0;
+    width: 100%;
+    text-align: center;
+    position: fixed;
+    top: 0;
+}
+
+/* Footer-Styling */
+.footer {
+    background-color: #031a30;
+    color: #ffffff;
+    padding: 10px 0;
+    width: 100%;
+    position: fixed;
+    bottom: 0;
+    text-align: center; /* Zentriert den Text im Footer */
+}
+
+.container {
+    max-width: 800px;
+    margin: 0 auto;
+    padding-bottom: 60px; /* Platz für den Footer */
+    display: flex;
+    flex-direction: column;
+    min-height: 100vh;
+    text-align: center; /* Zentriert den Text im Container */
+}
+
+/* Link-Styling im Header und Footer */
+header a, .footer a {
+    color: #ffffff;
+    text-decoration: none;
+}
+
+/* H1-Styling */
+h1 {
+    text-align: center;
+    margin-top: 40px;
+}
+
+/* Paragraph-Styling */
+p {
+    line-height: 1.6;
+}
+
+/* Link-Styling */
+a {
+    color: #007bff;
+    text-decoration: none;
+}
+
+a:hover {
+    text-decoration: underline;
+}
