@@ -1,15 +1,13 @@
-<?php
-session_start();
-?>
-
-
 <!DOCTYPE html>
 <html lang="en">
 <head>
     <meta charset="utf-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1">
-    <title>Über uns</title>
+    <title>Login</title>
+
+    <!-- jQuery -->
+    <script src="https://code.jquery.com/jquery-3.6.4.min.js"></script>
 
     <!-- Bootstrap CSS -->
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
@@ -19,22 +17,39 @@ session_start();
         <!-- jQuery -->
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
 
+
     <!-- Google Fonts -->
     <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;700&display=swap" rel="stylesheet">
     <link href="https://fonts.googleapis.com/css2?family=Lato:wght@400;700&display=swap" rel="stylesheet">
 
+
     <!-- Custom CSS -->
     <link rel="stylesheet" href="css/myStyle.css">
 </head>
+
 <body>
-    <header>
-        <?php include 'includes/header.php'; ?>
-    </header>
-    <div class="container mt-5">
-        <h1 class="text-center mb-4">Hello, world!</h1>
+<header>
+    <?php include 'includes/header.php'; ?>
+</header>
+    <div class="login-form">
+        <form method="post" id="login-form">
+            <h2 class="text-center">Log in</h2>
+            <div class="form-group">
+                <input type="text" class="form-control" placeholder="E-Mail" id="email" required="required">
+            </div>
+            <div class="form-group">
+                <input type="password" class="form-control" placeholder="Password" id="password" required="required">
+            </div>
+            <div class="form-group">
+                <button type="button" id="loginBtn" class="btn1">Login</button>
+            </div>
+        </form>
+        <p class="text-center" style="padding-top: 20px;"><a href="registration.php">No account? Sign up here!</a></p>
     </div>
     <footer>
         <?php include 'includes/footer.php'; ?>
     </footer>
 </body>
+<script src="js/login.js"></script>
+
 </html>
