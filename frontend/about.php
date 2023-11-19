@@ -38,7 +38,7 @@
             </div>
             <div class="col-md-4">
                 <div class="text-center">
-                    <img src="pfad/zu/bild2.jpg" class="img-fluid" alt="Teammitglied 2">
+                    <img src="pics/Clemens.jpg" class="img-fluid" alt="Teammitglied 2">
                     <h2>Clemens Karner</h2>
                     <p>Requirements Engineer</p>
                     <p>Devops Engineer</p>
