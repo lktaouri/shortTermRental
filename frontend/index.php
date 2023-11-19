@@ -18,7 +18,8 @@
 </head>
 <body>
     <header>
-        <?php include 'includes/header.php'; ?>
+        <?php include 'includes/header.php';
+              require_once '../backend/db/conn.php'  ; ?>
     </header>
     <div class="container mt-5">
         <h1 class="text-center mb-4">Hello, world!</h1>
