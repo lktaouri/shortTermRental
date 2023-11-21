@@ -18,14 +18,56 @@
 </head>
 <body>
     <header>
-        <?php include 'includes/header.php';
-              require_once '../backend/db/conn.php'  ; ?>
+        <?php include 'includes/header.php'; ?>
+        <?php require_once '../backend/db/conn.php'; ?>
     </header>
+
     <div class="container mt-5">
-        <h1 class="text-center mb-4">Hello, world!</h1>
+        <h1 class="text-center mb-4">Our Flats</h1>
+        <div id="flats-container" class="row"> 
+            <!-- Flats will be displayed here -->
+        </div>
     </div>
-    <footer>
-        <?php include 'includes/footer.php'; ?>
-    </footer>
+
+    
+    <?php include 'includes/footer.php'; ?>
+
+    <!-- jQuery -->
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+    <!-- Bootstrap JS -->
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+
+    <!-- Custom JavaScript for AJAX call -->
+    <script>
+    $(document).ready(function() {
+        $.ajax({
+            url: '../backend/index.php', // Make sure this is the correct path to your PHP script
+            type: 'GET',
+            dataType: 'json',
+            success: function(flats) {
+                flats.forEach(function(flat) {
+                    var imagePath = 'pics/' + flat.photo; // Update this path if necessary
+                    var flatCard = `
+                        <div class="col-md-4 mb-3 d-flex align-items-stretch"> <!-- Use d-flex and align-items-stretch to make cards the same height -->
+                            <div class="card">
+                                <img src="${imagePath}" class="card-img-top" alt="${flat.name}">
+                                <div class="card-body d-flex flex-column"> <!-- Use flex-column to enable flex-grow -->
+                                    <h5 class="card-title">${flat.name}</h5>
+                                    <p class="card-text mt-auto">Price: ${flat.price}</p> <!-- mt-auto pushes the text to the bottom -->
+                                    <!-- Add more details here -->
+                                </div>
+                            </div>
+                        </div>
+                    `;
+                    $('#flats-container').append(flatCard);
+                });
+            },
+            error: function(xhr, status, error) {
+                $('#flats-container').html(`<p>Error: ${error}</p>`);
+            }
+        });
+    });
+</script>
+
 </body>
 </html>
