@@ -25,10 +25,6 @@
         <h1>Neue Immobilie anlegen:</h1>
         <form id="newProductForm">
             <div class="mb-3">
-                <label for="id" class="form-label">ID:</label>
-                <input type="int" class="form-control" id="id" name="id" required>
-            </div>
-            <div class="mb-3">
                 <label for="name" class="form-label">Name:</label>
                 <input type="text" class="form-control" id="name" name="name" required>
             </div>
@@ -63,7 +59,6 @@
 
         function handleNewImmo() {
             // Erfasse die Formulardaten
-            let id = $('#id').val();
             let name = $('#name').val();
             let preis = $('#preis').val();
             let bild = $('#bild')[0].files[0];
@@ -71,7 +66,6 @@
 
             // Erstelle ein FormData-Objekt
             let formData = new FormData();
-            formData.append('id', id);
             formData.append('name', name);
             formData.append('preis', preis);
             formData.append('bild', bild);
