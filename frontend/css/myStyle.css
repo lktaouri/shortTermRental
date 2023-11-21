@@ -3,11 +3,14 @@ body {
     font-family: 'Arial', sans-serif;
     background-color: #f8f9fa;
     margin-bottom: 60px; /* Platz für den Footer */
+    padding-top: 80px;
 }
 
+/* Unified Container Styling */
 .container {
     max-width: 800px;
     margin: 0 auto;
+    padding-bottom: 60px; /* Platz für den Footer */
 }
 
 /* Header-Styling */
@@ -19,6 +22,7 @@ body {
     text-align: center;
     position: fixed;
     top: 0;
+    z-index: 1030; /* Ensures header is above other elements */
 }
 
 /* Footer-Styling */
@@ -30,16 +34,7 @@ body {
     position: fixed;
     bottom: 0;
     text-align: center; /* Zentriert den Text im Footer */
-}
-
-.container {
-    max-width: 800px;
-    margin: 0 auto;
-    padding-bottom: 60px; /* Platz für den Footer */
-    display: flex;
-    flex-direction: column;
-    min-height: 100vh;
-    text-align: center; /* Zentriert den Text im Container */
+    z-index: 1000; /* Ensures footer is above other elements */
 }
 
 /* Link-Styling im Header und Footer */
@@ -51,7 +46,7 @@ header a, .footer a {
 /* H1-Styling */
 h1 {
     text-align: center;
-    margin-top: 40px;
+    margin-top: 40px; /* Adjust margin to ensure visibility below fixed header */
 }
 
 /* Paragraph-Styling */
@@ -69,26 +64,29 @@ a:hover {
     text-decoration: underline;
 }
 
+/* Fixed card height */
+.card {
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+}
 
-    /* Fixed card height */
-    .card {
-        height: 100%;
-        display: flex;
-        flex-direction: column;
-    }
-    /* Fixed image height and cover styling */
-    .card img.card-img-top {
-        height: 200px; /* Adjust as necessary */
-        object-fit: cover; /* This will cover the area proportionally */
-        width: 100%;
-    }
-    /* Flex-grow for card body to fill remaining space */
-    .card-body {
-        flex: 1;
-        display: flex;
-        flex-direction: column;
-        justify-content: between;
-    }
-    .card-text {
-        margin-top: auto; /* Pushes the text to the bottom */
-    }
+/* Fixed image height and cover styling */
+.card img.card-img-top {
+    height: 200px; /* Adjust as necessary */
+    object-fit: cover; /* This will cover the area proportionally */
+    width: 100%;
+}
+
+/* Flex-grow for card body to fill remaining space */
+.card-body {
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+    justify-content: between;
+}
+
+.card-text {
+    margin-top: auto; /* Pushes the text to the bottom */
+}
+
