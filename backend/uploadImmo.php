@@ -7,15 +7,17 @@ $preis = $_POST['preis'];
 $owner_id = $_POST['owner_id'];
 
 // Dateiupload und Speicherung im Serververzeichnis
-$target_dir = "pics/";
-$target_file = $target_dir . basename($_FILES["bild"]["name"]);
+$target_dir = "../frontend/pics/";
+$file_name = basename($_FILES["bild"]["name"]);
+$target_file = $target_dir . $file_name;
+
 
 if (move_uploaded_file($_FILES["bild"]["tmp_name"], $target_file)) {
     try {
         // SQL-Query für das Einfügen der Werte in die Datenbank
         $sql = "INSERT INTO flats (name, price, photo, owner_id) VALUES (?, ?, ?, ?)";
         $stmt = $pdo->prepare($sql);
-        $stmt->execute([ $name, $preis, $target_file, $owner_id]);
+        $stmt->execute([ $name, $preis, $file_name, $owner_id]);
 
         echo json_encode(["success" => true]);
     } catch (PDOException $e) {

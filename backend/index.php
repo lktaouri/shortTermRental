@@ -4,9 +4,17 @@
     try {
 
         // Query to retrieve all flats
-        $sql = "SELECT * FROM flats"; 
-        $stmt = $pdo->query($sql);
+        $location = isset($_GET['location']) ? $_GET['location'] : '';
 
+        if ($location !== '') {
+            $sql = "SELECT * FROM flats WHERE location LIKE :location";
+            $stmt = $pdo->prepare($sql);
+            $stmt->execute(['location' => '%' . $location . '%']);
+        } else {
+            $sql = "SELECT * FROM flats";
+            $stmt = $pdo->query($sql);
+        }
+    
         $flats = $stmt->fetchAll(PDO::FETCH_ASSOC);
 
         // Returning data in JSON format
