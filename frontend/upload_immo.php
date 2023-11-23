@@ -29,11 +29,15 @@
             </div>
             <div class="mb-3">
                 <label for="preis" class="form-label">Preis:</label>
-                <input class="form-control" id="preis" name="preis"required></input>
+                <input type="int" class="form-control" id="preis" name="preis"required></input>
             </div>
             <div class="mb-3">
                 <label for="bild" class="form-label">Bild hochladen:</label>
                 <input type="file" class="form-control" id="bild" name="bild">
+            </div>
+            <div class="mb-3">
+                <label for="location" class="form-label">Location:</label>
+                <input class="form-control" id="location" name="location"required></input>
             </div>
             <div class="mb-3">
                 <label for="owner_id" class="form-label">Owner-ID:</label>
@@ -61,6 +65,7 @@
             let name = $('#name').val();
             let preis = $('#preis').val();
             let bild = $('#bild')[0].files[0];
+            let location=$('#location').val();
             let owner_id = $('#owner_id').val();
 
             // Erstelle ein FormData-Objekt
@@ -68,6 +73,7 @@
             formData.append('name', name);
             formData.append('preis', preis);
             formData.append('bild', bild);
+            formData.append('location', location);
             formData.append('owner_id', owner_id);
 
             // Sende die Daten per AJAX an den PHP-Endpunkt
@@ -78,7 +84,9 @@
                 processData: false,
                 contentType: false,
                 success: function(response) {
+                    alert("Immobilie erfolgreich angelegt");
                     console.log(response); // Handle die Rückgabe des Servers
+
                 },
                 error: function(xhr, status, error) {
                     console.error(xhr.responseText);
