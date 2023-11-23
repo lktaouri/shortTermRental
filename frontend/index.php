@@ -68,7 +68,7 @@
                                     <div class="card-body d-flex flex-column">
                                         <h5 class="card-title">${flat.name}</h5>
                                         <p class="card-text mt-auto">Price: ${flat.price}</p>
-                                        <p class="card-text mt-auto">Price: ${flat.location}</p>
+                                        <p class="card-text mt-auto">Location: ${flat.location}</p>
                                     </div>
                                 </div>
                             </div>

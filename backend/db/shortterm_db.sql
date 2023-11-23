@@ -46,6 +46,7 @@ CREATE TABLE `flats` (
   `name` varchar(50) NOT NULL,
   `price` int(11) NOT NULL,
   `photo` varchar(50) NOT NULL,
+  `location` varchar(50) NOT NULL,
   `owner_id` int(11) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 
@@ -53,10 +54,10 @@ CREATE TABLE `flats` (
 -- Dumping data for table `flats`
 --
 
-INSERT INTO `flats` (`id`, `name`, `price`, `photo`, `owner_id`) VALUES
-(2, 'cozy flat', 30, 'cozy.jpg', 1),
-(3, 'sunny space', 20, 'sunny.jpg', 1),
-(4, 'lucky place', 90, 'nice.jpg', 1);
+INSERT INTO `flats` (`id`, `name`, `price`, `photo`,`location`, `owner_id`) VALUES
+(2, 'cozy flat', 30, 'cozy.jpg', 'Wien', 1),
+(3, 'sunny space', 20, 'sunny.jpg', 'St.Pölten', 1),
+(4, 'lucky place', 90, 'nice.jpg', 'Graz', 1);
 
 -- --------------------------------------------------------
 
