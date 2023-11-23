@@ -22,6 +22,8 @@
         <div class="header">
               <a class="navbar-brand" href="index.php">Travel Agency</a>
               <a class="navbar-brand" href="upload_immo.php">Flat management</a>
+              <a class="navbar-brand" href="registration.php">Register</a>
+              <a class="navbar-brand" href="login.php">Login</a>
               <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
                 <span class="navbar-toggler-icon"></span>
               </button>
