@@ -1,24 +1,7 @@
-<?php  include 'includes/header.php'; ?>
-<?php include 'includes/footer.php';?>
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="utf-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1">
-    <title>Impressum</title>
-
-    <!-- Bootstrap CSS -->
-    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
-
-    <!-- Google Fonts -->
-    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;700&display=swap" rel="stylesheet">
-    <link href="https://fonts.googleapis.com/css2?family=Lato:wght@400;700&display=swap" rel="stylesheet">
-
-    <!-- Custom CSS -->
-    <link rel="stylesheet" href="css/myStyle.css">
-</head>
 <body>
+    <header>
+        <?php include 'includes/header.php'; ?>>
+    </header>
      <!--        Upload Form -->
      <div class="container mt-4">
         <h1>Neue Immobilie anlegen:</h1>
@@ -47,10 +30,8 @@
         </form>
     </div>
 
-  <!-- jQuery -->
-  <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
-    <!-- Bootstrap JS -->
-    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+    <?php include 'includes/footer.php'; ?>
+<script src="https://code.jquery.com/jquery-3.5.1.min.js"></script>
 
      <!-- Custom JavaScript for AJAX call -->
      <script>
