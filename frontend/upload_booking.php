@@ -1,28 +1,33 @@
+<head>
+    <!-- Custom CSS -->
+    <link rel="stylesheet" href="css/buchung.css">
+</head>
 <body>
     <header>
         <?php include 'includes/header.php'; ?>>
     </header>
      <!--        Upload Form -->
-     <div class="container mt-4">
-        <h1>Neue Buchung anlegen:</h1>
-        <form id="newProductForm">
-            <div class="mb-3">
-                <label for="start_date" class="form-label">Anreisedatum:</label>
-                <input type="date" class="form-control" id="start_date" name="start_date" required>
-            </div>
-            <div class="mb-3">
-                <label for="end_date" class="form-label">Abreisedatum:</label>
-                <input type="date" class="form-control" id="end_date" name="end_date"required></input>
-            </div>
-           <!-- Hier wird die flat_id als hidden input Feld hinzugefügt -->
-           <input type="hidden" id="flat_id" name="flat_id">
-            <div class="mb-3">
-                <label for="user_id" class="form-label">User ID</label>
-                <input type="int" class="form-control" id="user_id" name="user_id" value="1">
-            </div>
-            <button type="button" id="newBooking" class="btn btn-primary">Buchung bestätigen</button>
-        </form>
-    </div>
+     <div class="container mt-4 new-booking-form">
+    <h1>Neue Buchung anlegen:</h1>
+    <form id="newProductForm">
+        <div class="mb-3">
+            <label for="start_date" class="form-label">Anreisedatum:</label>
+            <input type="date" class="form-control" id="start_date" name="start_date" required>
+        </div>
+        <div class="mb-3">
+            <label for="end_date" class="form-label">Abreisedatum:</label>
+            <input type="date" class="form-control" id="end_date" name="end_date" required></input>
+        </div>
+        <!-- Hier wird die flat_id als hidden input Feld hinzugefügt -->
+        <input type="hidden" id="flat_id" name="flat_id">
+        <div class="mb-3">
+            <label for="user_id" class="form-label">User ID</label>
+            <input type="int" class="form-control" id="user_id" name="user_id" value="1">
+        </div>
+        <button type="button" id="newBooking" class="btn btn-primary">Buchung bestätigen</button>
+    </form>
+</div>
+
 
     <?php include 'includes/footer.php'; ?>
 <script src="https://code.jquery.com/jquery-3.5.1.min.js"></script>
