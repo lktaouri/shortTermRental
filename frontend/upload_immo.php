@@ -1,24 +1,7 @@
-<?php  include 'includes/header.php'; ?>
-<?php include 'includes/footer.php';?>
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="utf-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1">
-    <title>Impressum</title>
-
-    <!-- Bootstrap CSS -->
-    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
-
-    <!-- Google Fonts -->
-    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;700&display=swap" rel="stylesheet">
-    <link href="https://fonts.googleapis.com/css2?family=Lato:wght@400;700&display=swap" rel="stylesheet">
-
-    <!-- Custom CSS -->
-    <link rel="stylesheet" href="css/myStyle.css">
-</head>
 <body>
+    <header>
+        <?php include 'includes/header.php'; ?>>
+    </header>
      <!--        Upload Form -->
      <div class="container mt-4">
         <h1>Neue Immobilie anlegen:</h1>
@@ -29,11 +12,15 @@
             </div>
             <div class="mb-3">
                 <label for="preis" class="form-label">Preis:</label>
-                <input class="form-control" id="preis" name="preis"required></input>
+                <input type="int" class="form-control" id="preis" name="preis"required></input>
             </div>
             <div class="mb-3">
                 <label for="bild" class="form-label">Bild hochladen:</label>
                 <input type="file" class="form-control" id="bild" name="bild">
+            </div>
+            <div class="mb-3">
+                <label for="location" class="form-label">Location:</label>
+                <input class="form-control" id="location" name="location"required></input>
             </div>
             <div class="mb-3">
                 <label for="owner_id" class="form-label">Owner-ID:</label>
@@ -43,10 +30,8 @@
         </form>
     </div>
 
-  <!-- jQuery -->
-  <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
-    <!-- Bootstrap JS -->
-    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+    <?php include 'includes/footer.php'; ?>
+<script src="https://code.jquery.com/jquery-3.5.1.min.js"></script>
 
      <!-- Custom JavaScript for AJAX call -->
      <script>
@@ -61,6 +46,7 @@
             let name = $('#name').val();
             let preis = $('#preis').val();
             let bild = $('#bild')[0].files[0];
+            let location=$('#location').val();
             let owner_id = $('#owner_id').val();
 
             // Erstelle ein FormData-Objekt
@@ -68,6 +54,7 @@
             formData.append('name', name);
             formData.append('preis', preis);
             formData.append('bild', bild);
+            formData.append('location', location);
             formData.append('owner_id', owner_id);
 
             // Sende die Daten per AJAX an den PHP-Endpunkt
@@ -78,7 +65,9 @@
                 processData: false,
                 contentType: false,
                 success: function(response) {
+                    alert("Immobilie erfolgreich angelegt");
                     console.log(response); // Handle die Rückgabe des Servers
+
                 },
                 error: function(xhr, status, error) {
                     console.error(xhr.responseText);
