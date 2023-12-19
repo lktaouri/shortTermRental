@@ -1,14 +1,14 @@
-<?php include 'includes/header.php'; ?>
-<style>
-        .container {
-            margin-top: 50px;
-        }
-    </style>
+<head>
+    <!-- Custom CSS -->
+    <link rel="stylesheet" href="css/loginstyle.css">
 </head>
 <body>
-    <div class="container">
+    <header>
+        <?php include 'includes/header.php'; ?>>
+    </header>
+    <div class="login-form">
         <h2>Login</h2>
-        <form id="loginForm">
+        <form id="login-form">
             <div class="form-group">
                 <label for="email">Email address:</label>
                 <input type="email" class="form-control" id="email" required>
@@ -17,7 +17,8 @@
                 <label for="password">Password:</label>
                 <input type="password" class="form-control" id="password" required>
             </div>
-            <button type="submit" class="btn btn-primary">Login</button>
+            <div class="form-group">
+            <button type="submit" id="loginBtn" class="btn1">Login</button>
         </form>
     </div>
 <?php include 'includes/footer.php'; ?>
