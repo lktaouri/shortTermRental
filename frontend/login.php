@@ -6,21 +6,21 @@
     <header>
         <?php include 'includes/header.php'; ?>>
     </header>
-    <div class="login-form">
-        <h2>Login</h2>
-        <form id="login-form">
-            <div class="form-group">
-                <label for="email">Email address:</label>
-                <input type="email" class="form-control" id="email" required>
-            </div>
-            <div class="form-group">
-                <label for="password">Password:</label>
-                <input type="password" class="form-control" id="password" required>
-            </div>
-            <div class="form-group">
-            <button type="submit" id="loginBtn" class="btn1">Login</button>
-        </form>
-    </div>
+<div class="login-form">
+    <h2>Login</h2>
+    <form id="login-form">
+        <div class="form-group">
+            <label for="email">Email address:</label>
+            <input type="email" class="form-control" id="email" required>
+        </div>
+        <div class="form-group">
+            <label for="password">Password:</label>
+            <input type="password" class="form-control" id="password" required>
+        </div>
+        <div class="form-group">
+        <button type="submit" id="loginBtn" class="btn1">Login</button>
+    </form>
+</div>
 <?php include 'includes/footer.php'; ?>
 <script src="https://code.jquery.com/jquery-3.5.1.min.js"></script>
 <script>
