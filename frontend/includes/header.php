@@ -24,6 +24,7 @@
               <a class="navbar-brand" href="upload_immo.php">Flat management</a>
               <a class="navbar-brand" href="registration.php">Register</a>
               <a class="navbar-brand" href="login.php">Login</a>
+              <a class="navbar-brand" href="booking_management.php">Booking Management</a>
         </div>
       </header>
 
