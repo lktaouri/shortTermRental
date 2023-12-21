@@ -14,11 +14,17 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
         $stmt = $pdo->prepare($sql);
         $stmt->execute([$start_date, $end_date, $flat_id, $user_id]);
 
-        echo json_encode(["success" => true]);
+        // Redirect to checkout.php with flat_id only if insertion is successful
+        header("Location: checkout.php?flat_id=" . urlencode($flat_id) . "&start_date=" . urlencode($start_date) . "&end_date=" . urlencode($end_date));
+        exit; // Make sure no further code is executed after redirect
     } catch (PDOException $e) {
+        // Handle the error appropriately
         echo json_encode(["success" => false, "error" => $e->getMessage()]);
+        exit; // Prevent further execution in case of error
     }
 } else {
+    // Handle invalid request method
     echo json_encode(["success" => false, "error" => "Invalid request method"]);
+    exit; // Prevent further execution for invalid request method
 }
 ?>
