@@ -6,6 +6,7 @@
     <header>
         <?php include 'includes/header.php'; ?>>
     </header>
+
 <div class="login-form">
     <h2>Login</h2>
     <form id="login-form">
@@ -21,6 +22,7 @@
         <button type="submit" id="loginBtn" class="btn1">Login</button>
     </form>
 </div>
+    </div>
 <?php include 'includes/footer.php'; ?>
 <script src="https://code.jquery.com/jquery-3.5.1.min.js"></script>
 <script>
@@ -53,4 +55,6 @@
             });
         });
     });
+
+
 </script>

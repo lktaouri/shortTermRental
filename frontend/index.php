@@ -78,6 +78,7 @@
                                         <p class="card-text mt-auto">Location: ${flat.location}</p>
                                         <a class="btn btn-primary" href="upload_booking.php">Buchen</a>
 
+
                                     </div>
                                 </div>
                             </div>

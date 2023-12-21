@@ -1,3 +1,4 @@
+
 <head>
     <!-- Custom CSS -->
     <link rel="stylesheet" href="css/registrationstyle.css">
@@ -56,3 +57,4 @@
         });
     });
 </script>
+
