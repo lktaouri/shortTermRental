@@ -86,11 +86,14 @@
                     });
 
                       // Event-Handler für den Buchungslink
-                $('.btn btn-primary').on('click', function(e) {
-                    e.preventDefault();
-                    var flatId = $(this).data('id');
-                    window.location.href = `upload_booking.php?flat_id=${flatId}`;
-                });
+                      $('.btn.btn-primary').on('click', function(e) {
+                        e.preventDefault();
+                        var flatId = $(this).closest('.col-md-4').data('flat-id');
+                        // Setze die flat_id im hidden input Feld des Formulars
+                        $('#flat_id').val(flatId);
+                        // Navigiere zu der Upload-Booking-Seite
+                        window.location.href = 'upload_booking.php';
+                    });
                 },
                 error: function(xhr, status, error) {
                     $('#flats-container').html(`<p>Error: ${error}</p>`);

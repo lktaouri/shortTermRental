@@ -19,7 +19,8 @@
             <input type="date" class="form-control" id="end_date" name="end_date" required></input>
         </div>
         <!-- Hier wird die flat_id als hidden input Feld hinzugefügt -->
-        <input type="hidden" id="flat_id" name="flat_id">
+        <input type="hidden" id="flat_id" name="flat_id" value="<?php echo isset($_GET['flat_id']) ? htmlspecialchars($_GET['flat_id']) : ''; ?>">
+
         <div class="mb-3">
             <label for="user_id" class="form-label">User ID</label>
             <input type="int" class="form-control" id="user_id" name="user_id" value="1">
