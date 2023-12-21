@@ -38,7 +38,7 @@
             </div>
             <div class="col-md-4">
                 <div class="text-center">
-                    <img src="pics/Clemens.jpg" class="img-fluid" alt="Teammitglied 2">
+                    <img src="pics/Portraitfoto.jpg" class="img-fluid" alt="Teammitglied 2">
                     <h2>Clemens Karner</h2>
                     <p>Requirements Engineer</p>
                     <p>Devops Engineer</p>
@@ -48,7 +48,7 @@
             <div class="col-md-4">
                 <div class="text-center">
                     <img src="pics/Arnold.jpg" class="img-fluid" alt="Teammitglied 3">
-                    <h2>Ar Kovacs</h2>
+                    <h2>Arnold Kovacs</h2>
                     <p>Requirements Engineer</p>
                     <p>Tester</p>
                     <p>SCRUM Master</p>
