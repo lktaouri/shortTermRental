@@ -64,6 +64,7 @@
                                         <p class="card-text">Abreisedatum: ${booking.end_date}</p>
                                         <p class="card-text">Flat ID: ${booking.flat_id}</p>
                                         <p class="card-text">User ID: ${booking.user_id}</p>
+                                        <p class="card-text">Preis: ${booking.price} EUR</p>
                                         <a class="btn btn-danger btn-storno" href="#">Stornieren</a>
                                     </div>
                                 </div>

@@ -4,7 +4,9 @@ include 'db/conn.php';
 if ($_SERVER['REQUEST_METHOD'] === 'GET') {
     try {
         // SQL-Query, um alle Buchungen aus der Datenbank abzurufen
-        $sql = "SELECT * FROM bookings";
+        $sql = "SELECT bookings.*, flats.price 
+                FROM bookings 
+                JOIN flats ON bookings.flat_id = flats.id";
         $stmt = $pdo->query($sql);
 
         // Daten in ein assoziatives Array konvertieren
