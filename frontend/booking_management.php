@@ -74,11 +74,11 @@
                         $('#bookings-container').append(bookingCard);
 
                         // Füge den Event-Handler für Stornierung hinzu
-                        $('.btn.btn-danger.btn-storno').on('click', function(e) {
-                            e.preventDefault();
-                            var bookingId = $(this).closest('.col-md-4').data('booking-id');
-                            handleStorno(bookingId);
-                        });
+                        $('#bookings-container').on('click', '.btn.btn-danger.btn-storno', function(e) {
+    e.preventDefault();
+    var bookingId = $(this).closest('[data-booking-id]').data('booking-id');
+    handleStorno(bookingId);
+});
 
                         // Füge die mx-auto-Klasse für die zentrierte Ausrichtung hinzu, wenn es nur eine Buchung gibt
                         if (bookings.length === 2) {
