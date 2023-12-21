@@ -46,6 +46,13 @@
     $(document).ready(function() {
         loadFlats('');
 
+          // Ändere die Event-Delegation, um auf das Klicken der Buchen-Links zu reagieren
+    $(document).on('click', '.btn-primary', function(e) {
+        e.preventDefault();
+        var flatId = $(this).closest('.col-md-4').data('flat-id'); // Flat ID aus dem Elternelement der Karte lesen
+        window.location.href = `upload_booking.php?flat_id=${flatId}`;
+    });
+
         $('#searchBar').on('input', function() {
             var searchQuery = $(this).val();
             loadFlats(searchQuery);
@@ -62,18 +69,31 @@
                     flats.forEach(function(flat) {
                         var imagePath = 'pics/' + flat.photo;
                         var flatCard = `
-                            <div class="col-md-4 mb-3 d-flex align-items-stretch">
+                            <div class="col-md-4 mb-3 d-flex align-items-stretch" data-flat-id="${flat.id}">
                                 <div class="card">
                                     <img src="${imagePath}" class="card-img-top" alt="${flat.name}">
                                     <div class="card-body d-flex flex-column">
                                         <h5 class="card-title">${flat.name}</h5>
                                         <p class="card-text mt-auto">Price: ${flat.price}</p>
                                         <p class="card-text mt-auto">Location: ${flat.location}</p>
+                                        <a class="btn btn-primary" href="upload_booking.php">Buchen</a>
+
+
                                     </div>
                                 </div>
                             </div>
                         `;
                         $('#flats-container').append(flatCard);
+                    });
+
+                      // Event-Handler für den Buchungslink
+                      $('.btn.btn-primary').on('click', function(e) {
+                        e.preventDefault();
+                        var flatId = $(this).closest('.col-md-4').data('flat-id');
+                        // Setze die flat_id im hidden input Feld des Formulars
+                        $('#flat_id').val(flatId);
+                        // Navigiere zu der Upload-Booking-Seite
+                        window.location.href = 'upload_booking.php';
                     });
                 },
                 error: function(xhr, status, error) {

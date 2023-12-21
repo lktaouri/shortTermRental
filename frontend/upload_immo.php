@@ -1,34 +1,39 @@
+
+<head>
+    <!-- Custom CSS -->
+    <link rel="stylesheet" href="css/upload.css">
+</head>
 <body>
     <header>
         <?php include 'includes/header.php'; ?>>
     </header>
      <!--        Upload Form -->
-     <div class="container mt-4">
-        <h1>Neue Immobilie anlegen:</h1>
-        <form id="newProductForm">
-            <div class="mb-3">
-                <label for="name" class="form-label">Name:</label>
-                <input type="text" class="form-control" id="name" name="name" required>
-            </div>
-            <div class="mb-3">
-                <label for="preis" class="form-label">Preis:</label>
-                <input type="int" class="form-control" id="preis" name="preis"required></input>
-            </div>
-            <div class="mb-3">
-                <label for="bild" class="form-label">Bild hochladen:</label>
-                <input type="file" class="form-control" id="bild" name="bild">
-            </div>
-            <div class="mb-3">
-                <label for="location" class="form-label">Location:</label>
-                <input class="form-control" id="location" name="location"required></input>
-            </div>
-            <div class="mb-3">
-                <label for="owner_id" class="form-label">Owner-ID:</label>
-                <input type="int" class="form-control" id="owner_id" name="owner_id" value="1">
-            </div>
-            <button type="button" id="newImmo" class="btn btn-primary">Neue Immobilie hinzufügen</button>
-        </form>
-    </div>
+     <div class="upload-form">
+    <h1>Neue Immobilie anlegen:</h1>
+    <form id="newProductForm">
+        <div class="mb-3">
+            <label for="name" class="form-label">Name:</label>
+            <input type="text" class="form-control" id="name" name="name" required>
+        </div>
+        <div class="mb-3">
+            <label for="preis" class="form-label">Preis:</label>
+            <input type="int" class="form-control" id="preis" name="preis" required></input>
+        </div>
+        <div class="mb-3">
+            <label for="bild" class="form-label">Bild hochladen:</label>
+            <input type="file" class="form-control" id="bild" name="bild">
+        </div>
+        <div class="mb-3">
+            <label for="location" class="form-label">Location:</label>
+            <input class="form-control" id="location" name="location" required></input>
+        </div>
+        <div class="mb-3">
+            <label for="owner_id" class="form-label">Owner-ID:</label>
+            <input type="int" class="form-control" id="owner_id" name="owner_id" value="1">
+        </div>
+        <button type="button" id="newImmo" class="btn btn-primary">Neue Immobilie hinzufügen</button>
+    </form>
+</div>
 
     <?php include 'includes/footer.php'; ?>
 <script src="https://code.jquery.com/jquery-3.5.1.min.js"></script>
