@@ -4,7 +4,7 @@
 </head>
 <body>
     <header>
-        <?php include 'includes/header.php'; ?>>
+        <?php include 'includes/header.php'; ?>
     </header>
      <!--        Upload Form -->
      <div class="container mt-4 new-booking-form">

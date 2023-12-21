@@ -87,7 +87,7 @@
                     });
 
                       // Event-Handler für den Buchungslink
-                      $('.btn.btn-primary').on('click', function(e) {
+                      $('.btn btn-primary').on('click', function(e) {
                         e.preventDefault();
                         var flatId = $(this).closest('.col-md-4').data('flat-id');
                         // Setze die flat_id im hidden input Feld des Formulars
