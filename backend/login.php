@@ -1,6 +1,7 @@
 <?php
 include 'db/conn.php';
 
+session_start(); // Start the session at the top of the script
 
 try {
     // Create a new PDO instance
@@ -29,16 +30,21 @@ try {
             // Verify the password
             if (password_verify($password, $user['password'])) {
                 // Login successful
-                // Start session, store user data, etc.
+
+                // Store user data in session
+                $_SESSION['user_id'] = $user['id']; // Assuming 'id' is the user identifier in your database
+                $_SESSION['user_email'] = $user['email_address']; // Store email or any other data as required
+                $_SESSION['user_role'] = $user['role']; // Assuming 'role' is the column in your database
 
                 echo "Login successful!";
+                exit;
             } else {
                 // Password does not match
                 echo "Invalid password.";
             }
         } else {
             // User does not exist
-            echo "Invalid email .";
+            echo "Invalid email.";
         }
     } else {
         echo "Invalid request method.";
