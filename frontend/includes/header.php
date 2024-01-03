@@ -1,3 +1,7 @@
+<?php
+// Start the session
+session_start();
+?>
 <!doctype html>
 <html lang="en">
   <head>
@@ -15,16 +19,49 @@
 
 <link rel="stylesheet" href="css/myStyle.css">
 
-    <title>Short Term Rental - <?php echo $title ?></title>
+    <title>Short Term Rental</title>
   </head>
   <body>
       <header>
         <div class="header">
               <a class="navbar-brand" href="index.php">Travel Agency</a>
-              <a class="navbar-brand" href="upload_immo.php">Flat management</a>
+              <?php
+        // Check if the user is logged in and has the role of 'admin'
+        if(isset($_SESSION['user_id']) && $_SESSION['user_role'] == 'ADMIN') {
+            echo '<a class="navbar-brand" href="upload_immo.php">Flat Management</a>';
+        }
+        ?>
+              <?php
+        if(isset($_SESSION['user_id'])) {
+          echo '<a class="navbar-brand" href="booking_management.php">Booking Management</a>';
+        }
+        ?>
               <a class="navbar-brand" href="registration.php">Register</a>
               <a class="navbar-brand" href="login.php">Login</a>
-              <a class="navbar-brand" href="booking_management.php">Booking Management</a>
-        </div>
+              <?php
+        // Display logout link only if the user is logged in
+        if(isset($_SESSION['user_id'])) {
+            echo '<a class="navbar-brand" id="logoutLink" href="#">Logout</a>';
+        }
+        ?>        </div>
       </header>
 
+      <script>
+  $(document).ready(function() {
+    $('#logoutLink').on('click', function(e) { // Corrected this line
+      e.preventDefault();
+      $.ajax({
+        type: 'POST',
+        url: '../backend/logout.php',
+        success: function(response) {
+          // Handle the response here. For example, redirect to login page
+          alert('Logged out successfully');
+          window.location.href = 'login.php';
+        },
+        error: function() {
+          alert('Logout failed');
+        }
+      });
+    });
+  });
+</script>

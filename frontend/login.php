@@ -27,7 +27,7 @@
 <script src="https://code.jquery.com/jquery-3.5.1.min.js"></script>
 <script>
     $(document).ready(function() {
-        $('#loginForm').submit(function(event) {
+        $('#login-form').submit(function(event) {
             event.preventDefault();
 
             var email = $('#email').val();
@@ -45,7 +45,7 @@
                     // For example, show a message or redirect the user.
                     alert(response);
                     if (response.trim() === "Login successful!") {
-                        window.location.href = 'index.php'; // Redirect to a welcome page or dashboard
+                        window.location.href = 'index.php';
                     }
                 },
                 error: function(xhr, status, error) {

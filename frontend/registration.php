@@ -18,10 +18,6 @@
             <label for="password">Password:</label>
             <input type="password" class="form-control" id="password" required>
         </div>
-        <div class="form-group">
-            <label for="paymentMethodId">Payment Method ID:</label>
-            <input type="number" class="form-control" id="paymentMethodId" required>
-        </div>
         <button type="submit" class="btn btn-primary">Register</button>
     </form>
 </div>
@@ -34,7 +30,6 @@
 
             var email = $('#email').val();
             var password = $('#password').val();
-            var paymentMethodId = $('#paymentMethodId').val();
 
             $.ajax({
                 type: 'POST',
@@ -42,12 +37,14 @@
                 data: {
                     email: email,
                     password: password,
-                    payment_method_id: paymentMethodId
                 },
                 success: function(response) {
                     // You can handle the server response here.
                     // For example, show a message or redirect the user.
                     alert(response);
+                    if (response.trim() === "Registration successful!") {
+                        window.location.href = 'index.php';
+                    }
                 },
                 error: function(xhr, status, error) {
                     // Handle any errors here

@@ -1,4 +1,5 @@
 <?php
+session_start();
 include 'db/conn.php';
 
 if ($_SERVER['REQUEST_METHOD'] === 'POST') {
@@ -6,7 +7,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
     $start_date = $_POST['start_date'];
     $end_date = $_POST['end_date'];
     $flat_id = $_POST['flat_id']; // Die flat_id aus dem Formular erfassen
-    $user_id = $_POST['user_id'];
+    $user_id = $_SESSION['user_id'];
 
     try {
         // SQL-Query für das Einfügen der Werte in die Datenbank
