@@ -10,22 +10,38 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
     $user_id = $_SESSION['user_id'];
 
     try {
+        // Überprüfen, ob die Wohnung für den gesamten Zeitraum verfügbar ist
+        $sql = "SELECT id FROM bookings 
+                WHERE flat_id = ? 
+                AND ((start_date BETWEEN ? AND ?) OR (end_date BETWEEN ? AND ?))";
+        $stmt = $pdo->prepare($sql);
+        $stmt->execute([$flat_id, $start_date, $end_date, $start_date, $end_date]);
+        $existingBookings = $stmt->fetchAll(PDO::FETCH_ASSOC);
+
+        if (count($existingBookings) > 0) {
+            echo "<script>alert('Die Wohnung ist für den ausgewählten Zeitraum nicht verfügbar.'); window.location.href = 'index.php';</script>";
+            exit; // Sicherstellen, dass kein weiterer Code nach der Weiterleitung ausgeführt wird
+        }
+
         // SQL-Query für das Einfügen der Werte in die Datenbank
         $sql = "INSERT INTO bookings (start_date, end_date, flat_id, user_id) VALUES (?, ?, ?, ?)";
         $stmt = $pdo->prepare($sql);
         $stmt->execute([$start_date, $end_date, $flat_id, $user_id]);
 
-        // Redirect to checkout.php with flat_id only if insertion is successful
-        header("Location: checkout.php?flat_id=" . urlencode($flat_id) . "&start_date=" . urlencode($start_date) . "&end_date=" . urlencode($end_date));
-        exit; // Make sure no further code is executed after redirect
+        // Überprüfen, ob die Buchung erfolgreich war
+        if ($stmt->rowCount() > 0) {
+            // Weiterleitung zu checkout.php mit den relevanten Daten
+            header("Location: checkout.php?flat_id=" . urlencode($flat_id) . "&start_date=" . urlencode($start_date) . "&end_date=" . urlencode($end_date));
+            exit; // Sicherstellen, dass kein weiterer Code nach der Weiterleitung ausgeführt wird
+        } else {
+            echo "<script>alert('Fehler bei der Buchung.');</script>";
+        }
     } catch (PDOException $e) {
-        // Handle the error appropriately
-        echo json_encode(["success" => false, "error" => $e->getMessage()]);
-        exit; // Prevent further execution in case of error
+        // Fehler entsprechend behandeln
+        echo "<script>alert('Fehler bei der Buchung: " . $e->getMessage() . "');</script>";
     }
 } else {
-    // Handle invalid request method
-    echo json_encode(["success" => false, "error" => "Invalid request method"]);
-    exit; // Prevent further execution for invalid request method
+    // Ungültige Anfrage-Methode behandeln
+    echo "<script>alert('Ungültige Anfrage-Methode.');</script>";
 }
 ?>
