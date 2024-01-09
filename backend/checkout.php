@@ -31,8 +31,8 @@ try {
 
     $checkout_session = \Stripe\Checkout\Session::create([
         "mode" => "payment",
-        "success_url" => "http://localhost/SoftwareProject/shortTermRental/frontend/index.php",
-        "cancel_url" => "http://localhost/SoftwareProject/shortTermRental/frontend/cancel.php",
+        "success_url" => "http://localhost/shortTermRental/frontend/index.php",
+        "cancel_url" => "http://localhost/shortTermRental/frontend/cancel.php",
         "line_items" => [
             [
                 "quantity" => 1,
