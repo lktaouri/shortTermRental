@@ -10,11 +10,16 @@
     <form id="availability-form">
         <div class="mb-3">
             <label for="availability_start_date" class="form-label">Startdatum:</label>
-            <input type="date" class="form-control" id="availability_start_date" required>
+            <input type="date" class="form-control" id="availability_start_date" name="start_date" required>
         </div>
         <div class="mb-3">
             <label for="availability_end_date" class="form-label">Enddatum:</label>
-            <input type="date" class="form-control" id="availability_end_date" required>
+            <input type="date" class="form-control" id="availability_end_date" name="end_date" required>
+        </div>
+        <!-- Neues Formularfeld für die Location -->
+        <div class="mb-3">
+            <label for="availability_location" class="form-label">Location:</label>
+            <input type="text" class="form-control" id="availability_location" name="location">
         </div>
         <button type="button" class="btn btn-primary" onclick="checkAvailability()">Verfügbare Flats anzeigen</button>
     </form>
@@ -37,15 +42,18 @@
 <!-- Custom JavaScript for AJAX call and Event Handling -->
 <script>
     function checkAvailability() {
-        var start_date = $('#availability_start_date').val();
-        var end_date = $('#availability_end_date').val();
+    var start_date = $('#availability_start_date').val();
+    var end_date = $('#availability_end_date').val();
+    var location = $('#availability_location').val();
 
-        $.ajax({
-            url: '../backend/checkAvailability.php',
-            type: 'GET',
-            data: { start_date: start_date, end_date: end_date },
-            dataType: 'json',
-            success: function(availableFlats) {
+    $.ajax({
+        url: '../backend/checkAvailability.php',
+        type: 'GET',
+        data: { start_date: start_date, end_date: end_date, location: location },
+        dataType: 'json',
+        success: function(availableFlats) {
+            // Überprüfen Sie, ob die Antwort ein Array ist
+            if (Array.isArray(availableFlats)) {
                 // Display available flats
                 $('#available-flats-container').empty();
                 availableFlats.forEach(function(flat) {
@@ -65,14 +73,15 @@
                     `;
                     $('#available-flats-container').append(flatCard);
                 });
-            },
-            error: function(xhr, status, error) {
-                console.error(xhr.responseText);
+            } else {
+                console.error('Invalid response format. Expected an array.');
             }
-        });
-    }
-
-    // Call checkAvailability on page load to display all flats
+        },
+        error: function(xhr, status, error) {
+            console.error(xhr.responseText);
+        }
+    });
+}
     $(document).ready(function() {
         checkAvailability();
     });
