@@ -8,6 +8,7 @@
 
 <div class="container mt-3">
     <form id="availability-form">
+        <h3>Geben Sie an Wann Sie verreisen möchten</h3>
         <div class="mb-3">
             <label for="availability_start_date" class="form-label">Startdatum:</label>
             <input type="date" class="form-control" id="availability_start_date" name="start_date" required>
@@ -17,16 +18,19 @@
             <input type="date" class="form-control" id="availability_end_date" name="end_date" required>
         </div>
         <!-- Neues Formularfeld für die Location -->
+        <h3>Wohin möchten Sie reisen?</h3>
         <div class="mb-3">
-            <label for="availability_location" class="form-label">Location:</label>
+            <label for="availability_location" class="form-label">Ort:</label>
             <input type="text" class="form-control" id="availability_location" name="location">
         </div>
-        <button type="button" class="btn btn-primary" onclick="checkAvailability()">Verfügbare Flats anzeigen</button>
+        <div class="text-center">
+            <button type="button" class="btn btn-primary" onclick="checkAvailability()">Verfügbare Immobilien anzeigen</button>
+        </div>
     </form>
 </div>
 
 <div class="container mt-5">
-    <h1 class="text-center mb-4">Verfügbare Flats</h1>
+    <h1 class="text-center mb-4">Verfügbare Immobilien</h1>
     <div id="available-flats-container" class="row">
         <!-- Verfügbare Flats werden hier angezeigt -->
     </div>

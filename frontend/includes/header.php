@@ -18,32 +18,54 @@ session_start();
 <script src="https://cdn.jsdelivr.net/npm/bootstrap@4.3.1/dist/js/bootstrap.min.js" integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM" crossorigin="anonymous"></script>
 
 <link rel="stylesheet" href="css/myStyle.css">
+<style>
+        .header {
+            background-color: #031a30;
+            color: #ffffff;
+            padding: 0;
+            width: 100%;
+            text-align: center;
+            position: fixed;
+            top: 0;
+            z-index: 1030;
+        }
+    </style>
 
-    <title>Short Term Rental</title>
+<title>Short Term Rental</title>
   </head>
   <body>
       <header>
         <div class="header">
-              <a class="navbar-brand" href="index.php">Travel Agency</a>
+          <!-- Linkes Bild -->
+        <img src="pics/projektlogo.png" alt="Linkes Bild" class="navbar-brand"  style="width: 50px; height: 70px;">
+              <a class="navbar-brand" href="index.php">Startseite</a>
               <?php
         // Check if the user is logged in and has the role of 'admin'
         if(isset($_SESSION['user_id']) && $_SESSION['user_role'] == 'ADMIN') {
-            echo '<a class="navbar-brand" href="upload_immo.php">Flat Management</a>';
+            echo '<a class="navbar-brand" href="upload_immo.php">Immobilien hinzufügen</a>';
         }
         ?>
               <?php
         if(isset($_SESSION['user_id'])) {
-          echo '<a class="navbar-brand" href="booking_management.php">Booking Management</a>';
+          echo '<a class="navbar-brand" href="booking_management.php">Meine Buchungen</a>';
+        }
+        if(!isset($_SESSION['user_id'])) {
+          echo '<a class="navbar-brand" href="registration.php">Registrierung</a>
+                <a class="navbar-brand" href="login.php">Login</a>';
         }
         ?>
-              <a class="navbar-brand" href="registration.php">Register</a>
-              <a class="navbar-brand" href="login.php">Login</a>
               <?php
         // Display logout link only if the user is logged in
         if(isset($_SESSION['user_id'])) {
             echo '<a class="navbar-brand" id="logoutLink" href="#">Logout</a>';
         }
-        ?>        </div>
+        ?>  
+
+        <!-- Rechtes Bild -->
+        <img src="pics/projektlogo.png" alt="Rechtes Bild" class="navbar-brand"  style="width: 50px; height: 70px;">    
+
+      </div>
+        
       </header>
 
       <script>
