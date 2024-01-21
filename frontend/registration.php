@@ -11,14 +11,14 @@
     <h2>Register</h2>
     <form id="registrationForm">
         <div class="form-group">
-            <label for="email">Email address:</label>
+            <label for="email">Email Adresse:</label>
             <input type="email" class="form-control" id="email" required>
         </div>
         <div class="form-group">
-            <label for="password">Password:</label>
+            <label for="password">Passwort:</label>
             <input type="password" class="form-control" id="password" required>
         </div>
-        <button type="submit" class="btn btn-primary">Register</button>
+        <button type="submit" class="btn btn-primary">Registrieren</button>
     </form>
 </div>
 <?php include 'includes/footer.php'; ?>

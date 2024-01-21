@@ -46,46 +46,47 @@
 <!-- Custom JavaScript for AJAX call and Event Handling -->
 <script>
     function checkAvailability() {
-    var start_date = $('#availability_start_date').val();
-    var end_date = $('#availability_end_date').val();
-    var location = $('#availability_location').val();
+        var start_date = $('#availability_start_date').val();
+        var end_date = $('#availability_end_date').val();
+        var location = $('#availability_location').val();
 
-    $.ajax({
-        url: '../backend/checkAvailability.php',
-        type: 'GET',
-        data: { start_date: start_date, end_date: end_date, location: location },
-        dataType: 'json',
-        success: function(availableFlats) {
-            // Überprüfen Sie, ob die Antwort ein Array ist
-            if (Array.isArray(availableFlats)) {
-                // Display available flats
-                $('#available-flats-container').empty();
-                availableFlats.forEach(function(flat) {
-                    var imagePath = 'pics/' + flat.photo;
-                    var flatCard = `
-                        <div class="col-md-4 mb-3">
-                            <div class="card">
-                                <img src="${imagePath}" class="card-img-top" alt="${flat.name}">
-                                <div class="card-body">
-                                    <h5 class="card-title">${flat.name}</h5>
-                                    <p class="card-text">Price: ${flat.price}</p>
-                                    <p class="card-text">Location: ${flat.location}</p>
-                                    <a class="btn btn-primary" href="upload_booking.php?flat_id=${flat.id}">Buchen</a>
+        $.ajax({
+            url: '../backend/checkAvailability.php',
+            type: 'GET',
+            data: { start_date: start_date, end_date: end_date, location: location },
+            dataType: 'json',
+            success: function(availableFlats) {
+                // Überprüfen Sie, ob die Antwort ein Array ist
+                if (Array.isArray(availableFlats)) {
+                    // Display available flats
+                    $('#available-flats-container').empty();
+                    availableFlats.forEach(function(flat) {
+                        var imagePath = 'pics/' + flat.photo;
+                        var flatCard = `
+                            <div class="col-md-4 mb-3">
+                                <div class="card">
+                                    <img src="${imagePath}" class="card-img-top" alt="${flat.name}">
+                                    <div class="card-body">
+                                        <h5 class="card-title">${flat.name}</h5>
+                                        <p class="card-text">Preis: ab ${flat.price}€</p>
+                                        <p class="card-text">Ort: ${flat.location}</p>
+                                        ${isLoggedIn ? `<a class="btn btn-primary" href="upload_booking.php?flat_id=${flat.id}">Buchen</a>` : ''}
+                                    </div>
                                 </div>
                             </div>
-                        </div>
-                    `;
-                    $('#available-flats-container').append(flatCard);
-                });
-            } else {
-                console.error('Invalid response format. Expected an array.');
+                        `;
+                        $('#available-flats-container').append(flatCard);
+                    });
+                } else {
+                    console.error('Invalid response format. Expected an array.');
+                }
+            },
+            error: function(xhr, status, error) {
+                console.error(xhr.responseText);
             }
-        },
-        error: function(xhr, status, error) {
-            console.error(xhr.responseText);
-        }
-    });
-}
+        });
+    }
+
     $(document).ready(function() {
         checkAvailability();
     });

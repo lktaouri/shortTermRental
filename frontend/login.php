@@ -11,15 +11,15 @@
     <h2>Login</h2>
     <form id="login-form">
         <div class="form-group">
-            <label for="email">Email address:</label>
+            <label for="email">Email Adresse:</label>
             <input type="email" class="form-control" id="email" required>
         </div>
         <div class="form-group">
-            <label for="password">Password:</label>
+            <label for="password">Passwort:</label>
             <input type="password" class="form-control" id="password" required>
         </div>
         <div class="form-group">
-        <button type="submit" id="loginBtn" class="btn1">Login</button>
+        <button type="submit" id="loginBtn" class="btn1">Anmelden</button>
     </form>
 </div>
     </div>
