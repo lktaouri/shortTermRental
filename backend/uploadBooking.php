@@ -19,7 +19,8 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
         $existingBookings = $stmt->fetchAll(PDO::FETCH_ASSOC);
 
         if (count($existingBookings) > 0) {
-            echo "<script>alert('Die Wohnung ist für den ausgewählten Zeitraum nicht verfügbar.'); window.location.href = 'index.php';</script>";
+            echo "<script>alert('Die Wohnung ist für den ausgewählten Zeitraum nicht verfügbar.')</script>";
+            echo "<script>window.location.href = '../frontend/upload_booking.php';</script>";
             exit; // Sicherstellen, dass kein weiterer Code nach der Weiterleitung ausgeführt wird
         }
 

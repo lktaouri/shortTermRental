@@ -62,8 +62,8 @@
                                         <h5 class="card-title">Buchungsnummer: ${booking.id}</h5>
                                         <p class="card-text">Anreisedatum: ${booking.start_date}</p>
                                         <p class="card-text">Abreisedatum: ${booking.end_date}</p>
-                                        <p class="card-text">Flat ID: ${booking.flat_id}</p>
-                                        <p class="card-text">User ID: ${booking.user_id}</p>
+                                        <p class="card-text">Wohnungs_ID: ${booking.flat_id}</p>
+                                        <p class="card-text">Benutzer_ID: ${booking.user_id}</p>
                                         <p class="card-text">Preis: ${booking.price} EUR</p>
                                         <a class="btn btn-danger btn-storno" href="#">Stornieren</a>
                                     </div>

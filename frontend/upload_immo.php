@@ -24,11 +24,11 @@
             <input type="file" class="form-control" id="bild" name="bild">
         </div>
         <div class="mb-3">
-            <label for="location" class="form-label">Location:</label>
+            <label for="location" class="form-label">Ort:</label>
             <input class="form-control" id="location" name="location" required></input>
         </div>
         <div class="mb-3">
-            <label for="owner_id" class="form-label">Owner-ID:</label>
+            <label for="owner_id" class="form-label">Benutzer-ID:</label>
             <input type="int" class="form-control" id="owner_id" name="owner_id" value="1">
         </div>
         <button type="button" id="newImmo" class="btn btn-primary">Neue Immobilie hinzufügen</button>

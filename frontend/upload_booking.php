@@ -20,7 +20,7 @@
             </div>
             <!-- Hidden field for flat_id -->
             <input type="hidden" id="flat_id" name="flat_id" value="<?php echo isset($_GET['flat_id']) ? htmlspecialchars($_GET['flat_id']) : ''; ?>">
-            <button type="submit" class="btn btn-primary">Proceed to Booking</button>
+            <button type="submit" class="btn btn-primary">Weiter zur Zahlung</button>
         </form>
     </div>
 
