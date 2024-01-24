@@ -72,6 +72,7 @@
                 success: function(response) {
                     alert("Immobilie erfolgreich angelegt");
                     console.log(response); // Handle die Rückgabe des Servers
+                    window.location.href = "index.php";
 
                 },
                 error: function(xhr, status, error) {

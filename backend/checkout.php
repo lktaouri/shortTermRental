@@ -110,8 +110,8 @@ try {
               <h1>Buchungsbestaetigung</h1>
             </div>
             <div class="email-content">
-              <p>Sehr geehrte(r) Herr/Frau Vermieter</p>
-              <p>vielen Dank fuer Ihre Buchung. Hier sind die Details Ihrer Buchung:</p>
+              <p>Sehr geehrte(r) Herr/Frau Admin</p>
+              <p>Es ist eine Buchung eingegangen. Hier sind die Details der Buchung:</p>
               <ul>
                 <li>' . $product_name . '</li>
                 <li>Von: ' . $formattedStartDate . '</li>
@@ -119,7 +119,7 @@ try {
                 <li>Flat (ID): ' . $flatId . '</li>
                 <li>Betrag: ' . $amount/100 .  ' Euro </li>
               </ul>
-              <p>Wir freuen uns, Sie bald zu sehen!</p>
+              <p>Weiter so :)</p>
             </div>
           </div>
         </body>
