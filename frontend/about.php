@@ -29,7 +29,7 @@
         <div class="row">
             <div class="col-md-4">
                 <div class="text-center">
-                    <img src="pics/add.png" class="img-fluid" alt="Teammitglied 1">
+                    <img src="pics/Mohammed.jpg" class="img-fluid" alt="Teammitglied 1">
                     <h2>Mohammed Laktaoui</h2>
                     <p>Requirements Engineer</p>
                     <p>Developer</p>
